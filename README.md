@@ -484,6 +484,29 @@ Choose Your Adventure:
    Start with Exercise 1 and progress sequentially.
 ```
 
+---
+
+## 📊 Project Statistics
+
+```
+┌─────────────────────────────────────────┐
+│ 📈 BY THE NUMBERS                      │
+├─────────────────────────────────────────┤
+│                                         │
+│  ✓ 10    Total Exercises                │
+│  ✓ 50+   Coding Tasks                   │
+│  ✓ 7     Data Engineering Tools         │
+│  ✓ 5     Python Libraries               │
+│  ✓ 100%  Dockerized & Portable          │
+│  ✓ ∞     Learning Potential             │
+│                                         │
+│  ⏱️  Time to Complete: 40-60 hours     │
+│  💪 Difficulty: Beginner → Advanced    │
+│  🎓 DIY Certification: Share your work! │
+│                                         │
+└─────────────────────────────────────────┘
+```
+
 ## Contributing
 
 Feel free to fork this repository and submit pull requests with improvements, additional exercises, or corrections. See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
