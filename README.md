@@ -123,61 +123,191 @@ Each exercise is located in `Exercises/Exercise-N/` and contains:
 
 ## Exercises
 
-### Beginner Exercises
+### 🟢 Beginner Exercises
 
 #### [Exercise 1 - Downloading Files](./Exercises/Exercise-1/README.md)
+```
+    ☁️  REMOTE SERVER                LOCAL MACHINE
+    ┌──────────────┐                ┌──────────────┐
+    │   file.zip   │  ────HTTP───→  │  file.zip    │
+    └──────────────┘                └──────┬───────┘
+                                           │
+                                           ▼
+                                    ┌────────────┐
+                                    │ extract()  │
+                                    └────┬───────┘
+                                         │
+                                         ▼
+                                    ┌───────────┐
+                                    │   data/   │
+                                    └───────────┘
+```
 Learn to download files from HTTP sources, unzip them, and store them locally using Python.
 
 **Skills:** HTTP requests, file I/O, zip handling
 
+---
+
 #### [Exercise 2 - Web Scraping + Downloading + Pandas](./Exercises/Exercise-2/README.md)
+```
+    🌐 WEB PAGE                    📊 PANDAS
+    ┌──────────────┐              ┌─────────────┐
+    │ <html>       │              │ DataFrame   │
+    │  <a href>    │────EXTRACT───│ Title │ URL │
+    │  <a href>────┘              └─────────────┘
+    │  <a href>    │
+    └──────────────┘
+```
 Practice web scraping, URI building, file downloads, and basic data aggregation with Pandas.
 
 **Skills:** Web scraping, HTTP requests, Pandas, data aggregation
 
+---
+
 #### [Exercise 3 - Boto3 AWS + S3 + Python](./Exercises/Exercise-3/README.md)
+```
+    ☁️  AWS S3 BUCKET             🐍 PYTHON APP
+    ┌──────────────┐              ┌──────────────┐
+    │ data/        │  ←Boto3──→   │ boto3.client │
+    │ ├─ file1.csv │              │ .download()  │
+    │ ├─ file2.csv │              └──────┬───────┘
+    │ └─ file3.csv │                     │
+    └──────────────┘              ┌──────▼────────┐
+                                  │ local_file.csv│
+                                  └───────────────┘
+```
 Work with AWS S3 using Boto3 to perform multi-step data retrieval from cloud storage.
 
 **Skills:** AWS, S3, Boto3, cloud storage
 
+---
+
 #### [Exercise 4 - Convert JSON to CSV](./Exercises/Exercise-4/README.md)
+```
+    📁 RAGGED DIRECTORY          🔄 CONVERSION
+    data/                        
+    ├─ file1.json ──────┐
+    ├─ nested/          │
+    │  └─ file2.json ───┼──→ [flatten] ──→ ┌──────────┐
+    └─ deep/nested/     │                  │ file.csv │
+       └─ file3.json ───┘                  └──────────┘
+```
 Traverse ragged directory structures, find JSON files, and convert them to CSV format.
 
 **Skills:** File traversal, JSON/CSV handling, Python file operations
 
+---
+
 #### [Exercise 5 - Data Modeling for Postgres](./Exercises/Exercise-5/README.md)
+```
+    📋 SCHEMA DESIGN              🗄️  POSTGRES DB
+    Customers ─────────┐          Customers ──────┐
+    Products  ────┐    ├─(Keys)──→ PK: customer_id │
+    Orders    ────┼────┤          FK: product_id   │
+    OrderItems ───┘    │          └─────────────────┘
+                       │
+                       └─(Indexes)→ idx_cust_email
+                                   idx_order_date
+```
 Design a database schema, create tables in Postgres, and perform data ingestion via Python.
 
-**Skills:** Database design, schema modeling, SQL, Python + Postgres, indexing
+**Skills:** Database design, schema modeling, SQL, Python + Postgres
 
-### Intermediate Exercises
+---
+
+### 🟡 Intermediate Exercises
 
 #### [Exercise 6 - Ingestion and Aggregation with PySpark](./Exercises/Exercise-6/README.md)
+```
+    📂 DATA FILES              ⚡ SPARK CLUSTER
+    orders.csv ────────┐       ┌──────────────┐
+    products.csv ──┬───┼──→    │ Spark Driver │
+    customers.csv─ │   │       ├──────────────┤
+                   └─→ │       │ Worker 1     │
+                  Load │       ├──────────────┤
+                       │       │ Worker 2     │
+                       └──────→│ Worker N     │
+                               └──┬───────────┘
+                                  │
+                          Results (Aggregated)
+```
 Load data files using PySpark and perform basic aggregations on distributed data.
 
 **Skills:** PySpark, data loading, aggregations, distributed processing
 
+---
+
 #### [Exercise 7 - Using Various PySpark Functions](./Exercises/Exercise-7/README.md)
+```
+    🔧 PYSPARK FUNCTIONS
+    
+    F.initcap()     ──┐
+    F.upper()       ──┤
+    F.when()        ──┼──→ DataFrame Transform  ──→ Results
+    F.datediff()    ──┤
+    F.row_number()  ──┤
+    F.collect_list()──┘
+```
 Apply multiple PySpark SQL functions to solve real-life data problems.
 
 **Skills:** PySpark SQL functions, transformations, problem-solving
 
+---
+
 #### [Exercise 8 - DuckDB for Analytics and Transforms](./Exercises/Exercise-8/README.md)
+```
+    📊 DUCKDB (In-Memory OLAP)
+    
+    SQL Query                     Result
+    SELECT ... FROM ...           ┌──────────────┐
+    GROUP BY ...            ──→   │ Fast Results │
+    WHERE ...                     │ In-Memory    │
+    JOIN ...                      └──────────────┘
+    
+    ✨ No Server Required!
+```
 Perform analytical and transformation tasks using DuckDB, a modern SQL engine.
 
-**Skills:** DuckDB, SQL analytics, data transformation, query optimization
+**Skills:** DuckDB, SQL analytics, data transformation
+
+---
 
 #### [Exercise 9 - Polars Lazy Computation](./Exercises/Exercise-9/README.md)
-Master Polars, a Rust-based data processing library with lazy evaluation for larger-than-memory datasets.
+```
+    ⏳ LAZY EVALUATION              ⚡ OPTIMIZED EXECUTION
+    
+    df.lazy()                      Optimization
+    .filter()        ─────────────→ Pushdown
+    .select()               ↓       Reordering
+    .groupby()             ↓        Pruning
+    .collect()  ◄──────────┘
+    
+    ✨ Faster, Leaner, Smarter!
+```
+Master Polars, a Rust-based data processing library with lazy evaluation.
 
 **Skills:** Polars, lazy evaluation, SQL context, performance optimization
 
-### Advanced Exercises
+---
+
+### 🔴 Advanced Exercises
 
 #### [Exercise 10 - Data Quality with Great Expectations](./Exercises/Exercise-10/README.md)
+```
+    ✓ DATA QUALITY CHECKS
+    
+    Input Data    Expectations      Validation       Report
+    ┌──────────┐  ┌────────────┐   ┌──────────┐    ┌────────┐
+    │ CSV File │→ │ No Nulls   │──→│ ✓ PASS   │───→│✓ Clean │
+    │ (Dirty)  │  │ Valid Type │   │ ✗ FAIL   │    │✗ Issues│
+    │          │  │ In Range   │   │ ⚠ WARN   │    └────────┘
+    └──────────┘  └────────────┘   └──────────┘
+```
 Implement data quality checks using Great Expectations to identify and catch data issues.
 
 **Skills:** Data quality, Great Expectations, validation, testing
+
+---
 
 ## Quick Start
 
