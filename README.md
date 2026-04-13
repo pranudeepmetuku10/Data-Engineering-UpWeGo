@@ -332,6 +332,39 @@ pip install -r Exercises/Exercise-1/requirements.txt
 python Exercises/Exercise-1/solution.py
 ```
 
+---
+
+## 📈 Progress Tracker
+
+Track your journey through the exercises:
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║ 🎯 EXERCISE COMPLETION STATUS                                   ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║ BEGINNER LEVEL                                                   ║
+║ ├─ □ Exercise 1: Downloading Files                           ║
+║ ├─ □ Exercise 2: Web Scraping + Pandas                       ║
+║ ├─ □ Exercise 3: AWS S3 + Boto3                              ║
+║ ├─ □ Exercise 4: JSON to CSV Conversion                      ║
+║ └─ □ Exercise 5: Postgres Data Modeling                      ║
+║                                                                  ║
+║ INTERMEDIATE LEVEL                                               ║
+║ ├─ □ Exercise 6: PySpark Ingestion                           ║
+║ ├─ □ Exercise 7: PySpark Functions                           ║
+║ ├─ □ Exercise 8: DuckDB Analytics                            ║
+║ └─ □ Exercise 9: Polars Lazy Computation                     ║
+║                                                                  ║
+║ ADVANCED LEVEL                                                   ║
+║ └─ □ Exercise 10: Data Quality Checks                        ║
+║                                                                  ║
+║ Progress: [□□□□□□□□□□] 0% ✨ (0 / 10 completed)              ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+💡 Tip: Edit the progress tracker above as you complete exercises!
+
 ## Project Structure
 
 ```
@@ -375,6 +408,21 @@ Data-Engineering-UpWeGo/
 ### Data Quality
 - [Great Expectations Documentation](https://docs.greatexpectations.io/)
 
+---
+
+## 🔧 Tech Stack by Exercise
+
+```
+EX1 → requests       EX6 → pyspark         EX10 → great-expectations
+EX2 → beautifulsoup  EX7 → pyspark              (+ pandas)
+EX3 → boto3          EX8 → duckdb
+EX4 → pathlib        EX9 → polars
+EX5 → psycopg2       (+ pandas)
+     (+ sqlalchemy)
+
+     All exercises use Docker for reproducibility! 🐳
+```
+
 ## Getting Help
 
 - Check the README.md in each exercise folder for detailed guidance
@@ -382,9 +430,63 @@ Data-Engineering-UpWeGo/
 - Review the starter code comments for additional context
 - Search for error messages in the documentation links above
 
+---
+
+## 🎓 Recommended Learning Path
+
+```
+Choose Your Adventure:
+
+┌─────────────────────────────────────────────────────────────┐
+│             START HERE                                      │
+│                  ↓                                          │
+│          ┌──────────────────┐                              │
+│          │   Exercise 1     │  (Downloading Files)         │
+│          └────────┬─────────┘                              │
+│                   ↓                                         │
+│          ┌──────────────────┐                              │
+│          │   Exercise 2     │  (Web Scraping)             │
+│          └────────┬─────────┘                              │
+│                   ↓                                         │
+│          ┌──────────────────┐                              │
+│          │   Exercise 3     │  (Cloud Storage)            │
+│          └────────┬─────────┘                              │
+│                   ↓                                         │
+│          ┌──────────────────┐                              │
+│          │   Exercise 4     │  (Format Conversion)        │
+│          └────────┬─────────┘                              │
+│                   ↓                                         │
+│          ┌──────────────────┐                              │
+│          │   Exercise 5     │  (Database Design)          │
+│          └────────┬─────────┘                              │
+│                   ↓                                         │
+│     ┌─────────────┴──────────────┐                        │
+│     ↓                            ↓                        │
+│  ┌──────────┐            ┌──────────────┐                │
+│  │Exercise 6│            │ Exercise 8   │               │
+│  │(PySpark) │            │ (DuckDB)     │               │
+│  └────┬─────┘            └──────┬───────┘               │
+│       ↓                          ↓                       │
+│  ┌──────────┐            ┌──────────────┐               │
+│  │Exercise 7│            │ Exercise 9   │               │
+│  │(Functions)            │ (Polars)     │               │
+│  └────┬─────┘            └──────┬───────┘               │
+│       ↓                          ↓                       │
+│     ┌─────────────────────────────┐                     │
+│     │    Exercise 10              │                     │
+│     │ (Data Quality)              │                     │
+│     │ 🎓 YOU ARE NOW A DATA ENGINEER! 🎓               │
+│     └─────────────────────────────┘                     │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+
+⚡ Each exercise builds on previous knowledge!
+   Start with Exercise 1 and progress sequentially.
+```
+
 ## Contributing
 
-Feel free to fork this repository and submit pull requests with improvements, additional exercises, or corrections.
+Feel free to fork this repository and submit pull requests with improvements, additional exercises, or corrections. See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
 ## License
 
@@ -392,4 +494,24 @@ This project is open source and available under the MIT License.
 
 ---
 
-**Ready to level up your Data Engineering skills? Start with [Exercise 1](./Exercises/Exercise-1/README.md)!**
+```
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║                    🚀 YOU ARE NOW A DATA ENGINEER 🚀                         ║
+║                                                                               ║
+║                 σ(σ⌐█_█) Collection...                                       ║
+║                   \\(°-°)/ Processing...                                      ║
+║                  (★^●^★)  Analyzing...                                       ║
+║                   ~(o_o)~ Validating...                                      ║
+║                  (◕ ◞౪◟ ◕)  Delivering Results!                              ║
+║                                                                               ║
+║   Remember: Every byte counts, every query optimizes, every test validates! ║
+║                                                                               ║
+║  "Data is the new oil, but only if you know how to refine it." — You       ║
+║                                                                               ║
+║  Keep learning. Keep building. Keep engineering.                            ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+                        Made with 💻 and ☕ for data nerds
+```
