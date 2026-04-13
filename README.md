@@ -1,14 +1,59 @@
-# Data Engineering Practice Problems
+```
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║   ██████╗  █████╗ ████████╗ █████╗        ███████╗███╗   ██╗ ██████╗        ║
+║   ██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗       ██╔════╝████╗  ██║██╔════╝        ║
+║   ██║  ██║███████║   ██║   ███████║       █████╗  ██╔██╗ ██║██║  ███╗       ║
+║   ██║  ██║██╔══██║   ██║   ██╔══██║       ██╔══╝  ██║╚██╗██║██║   ██║       ║
+║   ██████╔╝██║  ██║   ██║   ██║  ██║       ███████╗██║ ╚████║╚██████╔╝       ║
+║   ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝       ╚══════╝╚═╝  ╚═══╝ ╚═════╝        ║
+║                                                                               ║
+║         🚀 Data Engineering Practice Problems 🚀                             ║
+║              Master 10 Essential Data Skills                                 ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+```
 
-Welcome to the Data Engineering Practice Problems repository! This repository contains 10 hands-on exercises designed to help you develop the diverse technical skills required in modern data engineering.
+# 📊 Data Engineering Practice Problems
 
-## Overview
+Welcome to the Data Engineering Practice Problems repository! This repository contains **10 hands-on exercises** designed to help you develop the diverse technical skills required in modern data engineering.
 
-One of the main obstacles of Data Engineering is the large and varied technical skills that can be required on a day-to-day basis. This repository aims to help you master those skills through practical, real-world exercises.
+## 👨‍💻 Overview
+
+One of the main obstacles of Data Engineering is the **large and varied technical skills** that can be required on a day-to-day basis. This repository aims to help you master those skills through practical, real-world exercises.
+
+```
+    COLLECT        PROCESS        STORE        ANALYZE        SERVE
+       │               │             │             │             │
+       ▼               ▼             ▼             ▼             ▼
+    ┌─────┐        ┌─────┐      ┌─────┐      ┌─────┐      ┌─────┐
+    │ API │───────→│ ETL │────→│ DB  │────→│PySpark│────→│ API │
+    └─────┘        └─────┘      └─────┘      └─────┘      └─────┘
+       ▲               ▲             ▲             ▲             ▲
+    S3 | Files    Clean | Transform Indexes    Analytics     Reports
+```
 
 **Note:** If you complete all exercises and share your GitHub repo, you can receive a free copy of "Introduction to Data Engineering"!
 
-## Topics Covered
+---
+
+## 🎯 Topics Covered
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  SKILL TREE                                                  │
+├──────────────────────────────────────────────────────────────┤
+│                                                                │
+│  ✦ Python Data Processing    ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
+│  ✦ Web APIs & Web Scraping   ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
+│  ✦ Cloud Storage (AWS S3)    ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
+│  ✦ Database Design & SQL     ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
+│  ✦ Distributed Processing    ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
+│  ✦ Analytics Engines         ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
+│  ✦ Data Quality & Validation ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
+│                                                                │
+└──────────────────────────────────────────────────────────────┘
+```
 
 - **Python Data Processing** - CSV, flat-file, Parquet, JSON
 - **SQL & Database Design** - Table design, normalization, indexing
