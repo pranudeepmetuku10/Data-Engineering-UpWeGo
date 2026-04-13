@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: exercise-5-db
+    environment:
+      POSTGRES_USER: upwego
+      POSTGRES_PASSWORD: upwego123
+      POSTGRES_DB: exercise5_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U upwego"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: exercise-5-app
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=exercise5_db
+      - DB_USER=upwego
+      - DB_PASSWORD=upwego123
+
+volumes:
+  postgres_data:
