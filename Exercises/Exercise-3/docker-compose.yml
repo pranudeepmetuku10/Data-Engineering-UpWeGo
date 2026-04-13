@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: exercise-3-app
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      # AWS credentials (optional - uncomment and set for real AWS)
+      # - AWS_ACCESS_KEY_ID=your_key
+      # - AWS_SECRET_ACCESS_KEY=your_secret
+      # - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ENDPOINT_URL_S3=http://localstack:4566  # For LocalStack testing
