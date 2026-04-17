@@ -1,26 +1,30 @@
-```
-╔═══════════════════════════════════════════════════════════════════════════════╗
-║                                                                               ║
-║   ██████╗  █████╗ ████████╗ █████╗        ███████╗███╗   ██╗ ██████╗        ║
-║   ██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗       ██╔════╝████╗  ██║██╔════╝        ║
-║   ██║  ██║███████║   ██║   ███████║       █████╗  ██╔██╗ ██║██║  ███╗       ║
-║   ██║  ██║██╔══██║   ██║   ██╔══██║       ██╔══╝  ██║╚██╗██║██║   ██║       ║
-║   ██████╔╝██║  ██║   ██║   ██║  ██║       ███████╗██║ ╚████║╚██████╔╝       ║
-║   ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝       ╚══════╝╚═╝  ╚═══╝ ╚═════╝        ║
-║                                                                               ║
-║         🚀 Data Engineering Practice Problems 🚀                             ║
-║              Master 10 Essential Data Skills                                 ║
-║                                                                               ║
-╚═══════════════════════════════════════════════════════════════════════════════╝
-```
+# 🚀 Data Engineering Practice Problems
 
-# 📊 Data Engineering Practice Problems
+> **Master 10 Essential Data Engineering Skills Through Hands-On Exercises**
 
-Welcome to the Data Engineering Practice Problems repository! This repository contains **10 hands-on exercises** designed to help you develop the diverse technical skills required in modern data engineering.
+![Status](https://img.shields.io/badge/Status-Active-brightgreen) ![License](https://img.shields.io/badge/License-MIT-blue) ![Docker](https://img.shields.io/badge/Container-Docker-blue) ![Python](https://img.shields.io/badge/Python-3.9+-yellow)
 
-## 👨‍💻 Overview
+## Welcome! 👋
 
-One of the main obstacles of Data Engineering is the **large and varied technical skills** that can be required on a day-to-day basis. This repository aims to help you master those skills through practical, real-world exercises.
+Welcome to the **Data Engineering Practice Problems** repository! This is a comprehensive, hands-on learning platform with **10 carefully curated exercises** designed to help you master the fundamental skills required in modern data engineering.
+
+### Why This Project?
+
+Data Engineering requires a **diverse technical toolkit**. It's rare to be proficient in just one area. This project takes you on a guided journey through:
+
+- ✨ **Web APIs & Data Collection** - HTTP requests, web scraping
+- 🏗️ **Data Processing** - Pandas, Polars, PySpark
+- ☁️ **Cloud Infrastructure** - AWS S3, Boto3
+- 🗄️ **Database Engineering** - PostgreSQL, schema design
+- ⚡ **Distributed Processing** - Apache Spark, DuckDB
+- 🔍 **Data Quality** - Validation, testing, Great Expectations
+- 📊 **Modern Tools** - Polars, DuckDB, lazy evaluation
+
+**All exercises are containerized with Docker** for guaranteed reproducibility.
+
+---
+
+## 🛠 Tech Stack Overview
 
 ```
     COLLECT        PROCESS        STORE        ANALYZE        SERVE
