@@ -26,108 +26,135 @@ Data Engineering requires a **diverse technical toolkit**. It's rare to be profi
 
 ## 🛠 Tech Stack Overview
 
-```
-    COLLECT        PROCESS        STORE        ANALYZE        SERVE
-       │               │             │             │             │
-       ▼               ▼             ▼             ▼             ▼
-    ┌─────┐        ┌─────┐      ┌─────┐      ┌─────┐      ┌─────┐
-    │ API │───────→│ ETL │────→│ DB  │────→│PySpark│────→│ API │
-    └─────┘        └─────┘      └─────┘      └─────┘      └─────┘
-       ▲               ▲             ▲             ▲             ▲
-    S3 | Files    Clean | Transform Indexes    Analytics     Reports
-```
+| Layer | Tools & Technologies |
+|-------|----------------------|
+| **Data Collection** | HTTP requests, BeautifulSoup, Boto3, REST APIs |
+| **Data Processing** | Pandas, Polars, PySpark, DuckDB |
+| **Storage** | PostgreSQL, AWS S3, CSV/JSON/Parquet files |
+| **Analytics** | Spark SQL, DuckDB, Polars lazy frames |
+| **Quality** | Great Expectations, Pandas validation |
+| **Orchestration** | Docker, Docker Compose |
 
-**Note:** If you complete all exercises and share your GitHub repo, you can receive a free copy of "Introduction to Data Engineering"!
+### 🎯 Core Competencies You'll Master
 
----
+| Skill | Level | Exercises |
+|-------|-------|-----------|
+| 🐍 **Python Data Processing** | Beginner → Advanced | 1-4, 6-10 |
+| 🕸️ **Web APIs & Scraping** | Beginner | 1-2 |
+| ☁️ **AWS & Cloud Storage** | Beginner | 3 |
+| 🗄️ **SQL & Database Design** | Beginner → Intermediate | 5, 8 |
+| ⚡ **Distributed Processing** | Intermediate → Advanced | 6-7 |
+| 📊 **Analytics Engines** | Intermediate | 8-9 |
+| ✅ **Data Quality & Validation** | Advanced | 10 |
 
-## 🎯 Topics Covered
+> **💡 Tip:** Complete all exercises and share your GitHub repo? You could earn a free copy of "Introduction to Data Engineering"!
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│  SKILL TREE                                                  │
-├──────────────────────────────────────────────────────────────┤
-│                                                                │
-│  ✦ Python Data Processing    ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
-│  ✦ Web APIs & Web Scraping   ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
-│  ✦ Cloud Storage (AWS S3)    ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
-│  ✦ Database Design & SQL     ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
-│  ✦ Distributed Processing    ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
-│  ✦ Analytics Engines         ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
-│  ✦ Data Quality & Validation ⸺⸺⸺⸺⸺⸺⸺⸺⸺⸺   [■■■■■■■■■□]  │
-│                                                                │
-└──────────────────────────────────────────────────────────────┘
-```
+## 📋 Prerequisites
 
-- **Python Data Processing** - CSV, flat-file, Parquet, JSON
-- **SQL & Database Design** - Table design, normalization, indexing
-- **Data Ingestion** - Python + Postgres, APIs, cloud storage
-- **PySpark** - Distributed processing and aggregations
-- **Data Cleansing** - Handling dirty data and quality issues
-- **Modern Tools** - DuckDB, Polars, Great Expectations
+Before you get started, ensure you have these tools installed:
 
-## Prerequisites
+> **🐳 Docker is required for all exercises!** It ensures 100% reproducibility.
 
-Before getting started, ensure you have installed:
+### Required
+- **Docker** - Container runtime for isolated environments
+- **Docker Compose** - Multi-container orchestration
+- **Git** - Version control
 
-- **Docker** - For containerized environments
-- **Docker Compose** - For orchestrating multi-container setups
-- **Git** - For version control
-- **Python 3.9+** - Local development (optional, Docker includes it)
+### Optional (for local development)
+- **Python 3.9+** - Run exercises without Docker (not recommended)
 
 ### Installation
 
-**macOS (using Homebrew):**
+<details>
+<summary><b>🍎 macOS</b></summary>
+
 ```bash
+# Install using Homebrew
 brew install docker docker-compose git
-```
 
-**Linux (Ubuntu/Debian):**
+# Or download Docker Desktop from:
+# https://www.docker.com/products/docker-desktop
+```
+</details>
+
+<details>
+<summary><b>🐧 Linux (Ubuntu/Debian)</b></summary>
+
 ```bash
-sudo apt-get install docker.io docker-compose git
-curl https://get.docker.com -o get-docker.sh && sh get-docker.sh
+# Install Docker
+sudo apt-get update
+sudo apt-get install -y docker.io docker-compose git
+
+# Add user to docker group
 sudo usermod -aG docker $USER
+newgrp docker
+```
+</details>
+
+<details>
+<summary><b>🪟 Windows</b></summary>
+
+1. Download [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop)
+2. Follow the installation wizard
+3. Enable WSL 2 (Windows Subsystem for Linux 2)
+4. Install Git from [git-scm.com](https://git-scm.com/)
+
+</details>
+
+### Verify Installation
+
+```bash
+docker --version
+docker-compose --version
+git --version
 ```
 
-**Windows:**
-Download and install Docker Desktop from https://www.docker.com/products/docker-desktop
+---
 
-## Exercise Structure
+## 📂 Project Structure
 
-Each exercise is located in `Exercises/Exercise-N/` and contains:
+Each exercise includes:
+- 📄 **README.md** - Detailed problem description, requirements, and hints
+- 🐳 **Dockerfile** - Pre-configured container with all dependencies
+- 🔧 **docker-compose.yml** - Container orchestration (if multi-container setup needed)
+- 📦 **requirements.txt** - Python package dependencies
+- 💻 **solution.py** - Starter code with TODO sections to fill in
+- 📊 **sample_data/** - Sample datasets for testing
 
-- **README.md** - Problem description, requirements, and hints
-- **Dockerfile** - Container setup with all dependencies
-- **docker-compose.yml** - Container orchestration (if needed)
-- **requirements.txt** - Python package dependencies
-- **solution.py** - Starter code with TODO placeholders
-- **sample_data/** - Sample data files for testing (where applicable)
+---
 
-## How to Work on the Problems
+## 🚀 Quick Start (5 minutes)
 
-1. Navigate to the exercise folder:
-   ```bash
-   cd Exercises/Exercise-1
-   ```
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/yourusername/Data-Engineering-UpWeGo.git
+cd Data-Engineering-UpWeGo
+```
 
-2. Read the README.md for detailed instructions
+### Step 2: Start with Exercise 1
+```bash
+cd Exercises/Exercise-1
+```
 
-3. Build and run the Docker environment:
-   ```bash
-   docker-compose build
-   docker-compose run app python solution.py
-   ```
+### Step 3: Build & Run
+```bash
+docker-compose build
+docker-compose run app python solution.py
+```
 
-4. Edit `solution.py` to implement the required functionality
+### Step 4: Edit & Code
+Open `solution.py` in your editor and implement the required functionality (look for `TODO` comments).
 
-5. Test your solution:
-   ```bash
-   docker-compose run app python solution.py
-   ```
+### Step 5: Test Your Solution
+```bash
+docker-compose run app python solution.py
+```
 
-## Exercises
+> **Next:** Move to Exercise 2 when Exercise 1 passes all tests!
 
-### 🟢 Beginner Exercises
+---
+
+## 📚 Exercises at a Glance
 
 #### [Exercise 1 - Downloading Files](./Exercises/Exercise-1/README.md)
 ```
