@@ -156,416 +156,359 @@ docker-compose run app python solution.py
 
 ## 📚 Exercises at a Glance
 
-#### [Exercise 1 - Downloading Files](./Exercises/Exercise-1/README.md)
-```
-    ☁️  REMOTE SERVER                LOCAL MACHINE
-    ┌──────────────┐                ┌──────────────┐
-    │   file.zip   │  ────HTTP───→  │  file.zip    │
-    └──────────────┘                └──────┬───────┘
-                                           │
-                                           ▼
-                                    ┌────────────┐
-                                    │ extract()  │
-                                    └────┬───────┘
-                                         │
-                                         ▼
-                                    ┌───────────┐
-                                    │   data/   │
-                                    └───────────┘
-```
-Learn to download files from HTTP sources, unzip them, and store them locally using Python.
+### 🌱 Level 1: Foundation (Exercises 1-5)
 
-**Skills:** HTTP requests, file I/O, zip handling
+Get comfortable with core data engineering tasks.
+
+#### ✅ [Exercise 1: Downloading Files](./Exercises/Exercise-1/README.md)
+**Difficulty:** ⭐ | **Time:** ~30 min
+
+Download files from HTTP sources, handle archives, and validate data locally.
+
+- **Skills:** HTTP requests, file I/O, zip extraction, Python basics
+- **Tools:** `requests`, `urllib`, `zipfile`
+- **Real-world use:** Ingesting data from APIs and external sources
 
 ---
 
-#### [Exercise 2 - Web Scraping + Downloading + Pandas](./Exercises/Exercise-2/README.md)
-```
-    🌐 WEB PAGE                    📊 PANDAS
-    ┌──────────────┐              ┌─────────────┐
-    │ <html>       │              │ DataFrame   │
-    │  <a href>    │────EXTRACT───│ Title │ URL │
-    │  <a href>────┘              └─────────────┘
-    │  <a href>    │
-    └──────────────┘
-```
-Practice web scraping, URI building, file downloads, and basic data aggregation with Pandas.
+#### ✅ [Exercise 2: Web Scraping + Data Aggregation](./Exercises/Exercise-2/README.md)
+**Difficulty:** ⭐⭐ | **Time:** ~45 min
 
-**Skills:** Web scraping, HTTP requests, Pandas, data aggregation
+Extract data from web pages, build URLs dynamically, and aggregate results with Pandas.
+
+- **Skills:** Web scraping, HTML parsing, data aggregation
+- **Tools:** `requests`, `BeautifulSoup`, `pandas`
+- **Real-world use:** Collecting data from websites without APIs
 
 ---
 
-#### [Exercise 3 - Boto3 AWS + S3 + Python](./Exercises/Exercise-3/README.md)
-```
-    ☁️  AWS S3 BUCKET             🐍 PYTHON APP
-    ┌──────────────┐              ┌──────────────┐
-    │ data/        │  ←Boto3──→   │ boto3.client │
-    │ ├─ file1.csv │              │ .download()  │
-    │ ├─ file2.csv │              └──────┬───────┘
-    │ └─ file3.csv │                     │
-    └──────────────┘              ┌──────▼────────┐
-                                  │ local_file.csv│
-                                  └───────────────┘
-```
-Work with AWS S3 using Boto3 to perform multi-step data retrieval from cloud storage.
+#### ✅ [Exercise 3: AWS S3 + Boto3](./Exercises/Exercise-3/README.md)
+**Difficulty:** ⭐⭐ | **Time:** ~45 min
 
-**Skills:** AWS, S3, Boto3, cloud storage
+Access cloud storage, list objects, and download files from AWS S3 buckets.
+
+- **Skills:** Cloud APIs, AWS services, authentication
+- **Tools:** `boto3`, AWS SDK
+- **Real-world use:** Working with cloud-based data repositories
 
 ---
 
-#### [Exercise 4 - Convert JSON to CSV](./Exercises/Exercise-4/README.md)
-```
-    📁 RAGGED DIRECTORY          🔄 CONVERSION
-    data/                        
-    ├─ file1.json ──────┐
-    ├─ nested/          │
-    │  └─ file2.json ───┼──→ [flatten] ──→ ┌──────────┐
-    └─ deep/nested/     │                  │ file.csv │
-       └─ file3.json ───┘                  └──────────┘
-```
-Traverse ragged directory structures, find JSON files, and convert them to CSV format.
+#### ✅ [Exercise 4: JSON to CSV Conversion](./Exercises/Exercise-4/README.md)
+**Difficulty:** ⭐⭐ | **Time:** ~40 min
 
-**Skills:** File traversal, JSON/CSV handling, Python file operations
+Traverse complex directory structures, parse JSON files, and convert to CSV format.
+
+- **Skills:** File system traversal, JSON/CSV conversion, data flattening
+- **Tools:** `pathlib`, `json`, `pandas`
+- **Real-world use:** Data format standardization
 
 ---
 
-#### [Exercise 5 - Data Modeling for Postgres](./Exercises/Exercise-5/README.md)
-```
-    📋 SCHEMA DESIGN              🗄️  POSTGRES DB
-    Customers ─────────┐          Customers ──────┐
-    Products  ────┐    ├─(Keys)──→ PK: customer_id │
-    Orders    ────┼────┤          FK: product_id   │
-    OrderItems ───┘    │          └─────────────────┘
-                       │
-                       └─(Indexes)→ idx_cust_email
-                                   idx_order_date
-```
-Design a database schema, create tables in Postgres, and perform data ingestion via Python.
+#### ✅ [Exercise 5: Database Design & Data Modeling](./Exercises/Exercise-5/README.md)
+**Difficulty:** ⭐⭐⭐ | **Time:** ~60 min
 
-**Skills:** Database design, schema modeling, SQL, Python + Postgres
+Design normalized schemas, create tables in PostgreSQL, and perform data ingestion.
+
+- **Skills:** Database design, normalization, SQL, relational modeling
+- **Tools:** PostgreSQL, `psycopg2`, `sqlalchemy`
+- **Real-world use:** Architecting data warehouses and operational databases
 
 ---
 
-### 🟡 Intermediate Exercises
+### ⚡ Level 2: Processing & Analytics (Exercises 6-9)
 
-#### [Exercise 6 - Ingestion and Aggregation with PySpark](./Exercises/Exercise-6/README.md)
-```
-    📂 DATA FILES              ⚡ SPARK CLUSTER
-    orders.csv ────────┐       ┌──────────────┐
-    products.csv ──┬───┼──→    │ Spark Driver │
-    customers.csv─ │   │       ├──────────────┤
-                   └─→ │       │ Worker 1     │
-                  Load │       ├──────────────┤
-                       │       │ Worker 2     │
-                       └──────→│ Worker N     │
-                               └──┬───────────┘
-                                  │
-                          Results (Aggregated)
-```
-Load data files using PySpark and perform basic aggregations on distributed data.
+Master distributed processing and modern analytics tools.
 
-**Skills:** PySpark, data loading, aggregations, distributed processing
+#### ✅ [Exercise 6: PySpark Data Ingestion & Aggregation](./Exercises/Exercise-6/README.md)
+**Difficulty:** ⭐⭐⭐ | **Time:** ~50 min
+
+Load data into Spark DataFrames and perform aggregations on distributed clusters.
+
+- **Skills:** Distributed computing, Spark DataFrames, aggregations
+- **Tools:** Apache Spark, PySpark
+- **Real-world use:** Processing massive datasets that don't fit in memory
 
 ---
 
-#### [Exercise 7 - Using Various PySpark Functions](./Exercises/Exercise-7/README.md)
-```
-    🔧 PYSPARK FUNCTIONS
-    
-    F.initcap()     ──┐
-    F.upper()       ──┤
-    F.when()        ──┼──→ DataFrame Transform  ──→ Results
-    F.datediff()    ──┤
-    F.row_number()  ──┤
-    F.collect_list()──┘
-```
-Apply multiple PySpark SQL functions to solve real-life data problems.
+#### ✅ [Exercise 7: PySpark Functions & Transformations](./Exercises/Exercise-7/README.md)
+**Difficulty:** ⭐⭐⭐ | **Time:** ~50 min
 
-**Skills:** PySpark SQL functions, transformations, problem-solving
+Apply various PySpark SQL functions to solve complex data problems.
+
+- **Skills:** PySpark transformations, windowing functions, string operations
+- **Tools:** PySpark SQL, UDFs
+- **Real-world use:** Complex data transformations at scale
 
 ---
 
-#### [Exercise 8 - DuckDB for Analytics and Transforms](./Exercises/Exercise-8/README.md)
-```
-    📊 DUCKDB (In-Memory OLAP)
-    
-    SQL Query                     Result
-    SELECT ... FROM ...           ┌──────────────┐
-    GROUP BY ...            ──→   │ Fast Results │
-    WHERE ...                     │ In-Memory    │
-    JOIN ...                      └──────────────┘
-    
-    ✨ No Server Required!
-```
-Perform analytical and transformation tasks using DuckDB, a modern SQL engine.
+#### ✅ [Exercise 8: DuckDB Analytics](./Exercises/Exercise-8/README.md)
+**Difficulty:** ⭐⭐⭐ | **Time:** ~45 min
 
-**Skills:** DuckDB, SQL analytics, data transformation
+Perform OLAP analytics using DuckDB's high-performance in-memory engine.
+
+- **Skills:** SQL analytics, analytical processing, performance optimization
+- **Tools:** DuckDB, SQL
+- **Real-world use:** Fast analytics on structured data
 
 ---
 
-#### [Exercise 9 - Polars Lazy Computation](./Exercises/Exercise-9/README.md)
-```
-    ⏳ LAZY EVALUATION              ⚡ OPTIMIZED EXECUTION
-    
-    df.lazy()                      Optimization
-    .filter()        ─────────────→ Pushdown
-    .select()               ↓       Reordering
-    .groupby()             ↓        Pruning
-    .collect()  ◄──────────┘
-    
-    ✨ Faster, Leaner, Smarter!
-```
-Master Polars, a Rust-based data processing library with lazy evaluation.
+#### ✅ [Exercise 9: Polars Lazy Evaluation](./Exercises/Exercise-9/README.md)
+**Difficulty:** ⭐⭐⭐ | **Time:** ~50 min
 
-**Skills:** Polars, lazy evaluation, SQL context, performance optimization
+Master Polars, a Rust-based library with lazy evaluation for optimal query planning.
+
+- **Skills:** Lazy evaluation, query optimization, modern data frames
+- **Tools:** Polars, lazy API, SQL context
+- **Real-world use:** Next-generation high-performance data processing
 
 ---
 
-### 🔴 Advanced Exercises
+### 🎓 Level 3: Advanced (Exercise 10)
 
-#### [Exercise 10 - Data Quality with Great Expectations](./Exercises/Exercise-10/README.md)
-```
-    ✓ DATA QUALITY CHECKS
-    
-    Input Data    Expectations      Validation       Report
-    ┌──────────┐  ┌────────────┐   ┌──────────┐    ┌────────┐
-    │ CSV File │→ │ No Nulls   │──→│ ✓ PASS   │───→│✓ Clean │
-    │ (Dirty)  │  │ Valid Type │   │ ✗ FAIL   │    │✗ Issues│
-    │          │  │ In Range   │   │ ⚠ WARN   │    └────────┘
-    └──────────┘  └────────────┘   └──────────┘
-```
-Implement data quality checks using Great Expectations to identify and catch data issues.
+Production-ready data quality and governance.
 
-**Skills:** Data quality, Great Expectations, validation, testing
+#### ✅ [Exercise 10: Data Quality with Great Expectations](./Exercises/Exercise-10/README.md)
+**Difficulty:** ⭐⭐⭐⭐ | **Time:** ~60 min
+
+Implement comprehensive data quality checks and validation pipelines.
+
+- **Skills:** Data validation, quality metrics, testing frameworks, reporting
+- **Tools:** Great Expectations, Pandas, pytest
+- **Real-world use:** Ensuring data integrity in production pipelines
 
 ---
 
-## Quick Start
+## 🎯 Recommended Learning Path
 
-Get started with Exercise 1:
+```
+START HERE ↓
+
+Exercise 1 (Files) → Exercise 2 (Scraping) → Exercise 3 (Cloud)
+    ↓                                             ↓
+Exercise 4 (Formats) ← ← ← ← ← ← ← ← ← ← ← ← ← ↓
+    ↓                                             ↓
+Exercise 5 (Databases) ← ← ← ← ← ← ← ← ← ← ← ← ↓
+    ↓
+    ├─→ Exercise 6 (Spark) → Exercise 7 (Spark +) ┐
+    │                                              ├→ Exercise 10 (Quality) 
+    └─→ Exercise 8 (DuckDB) → Exercise 9 (Polars)┘
+
+🎓 Complete all 10 exercises → You're a Data Engineer! 🚀
+```
+
+---
+
+## 💼 Local Development (Optional)
+
+If you want to run exercises locally without Docker:
 
 ```bash
-cd Exercises/Exercise-1
-docker-compose build
-docker-compose run app python solution.py
-```
-
-Then open `solution.py` and fill in the TODO sections.
-
-## Local Development (Optional)
-
-If you prefer to run exercises locally without Docker:
-
-```bash
+# Create virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies for an exercise
 pip install -r Exercises/Exercise-1/requirements.txt
+
+# Run the solution
 python Exercises/Exercise-1/solution.py
 ```
 
----
-
-## 📈 Progress Tracker
-
-Track your journey through the exercises:
-
-```
-╔══════════════════════════════════════════════════════════════════╗
-║ 🎯 EXERCISE COMPLETION STATUS                                   ║
-╠══════════════════════════════════════════════════════════════════╣
-║                                                                  ║
-║ BEGINNER LEVEL                                                   ║
-║ ├─ □ Exercise 1: Downloading Files                           ║
-║ ├─ □ Exercise 2: Web Scraping + Pandas                       ║
-║ ├─ □ Exercise 3: AWS S3 + Boto3                              ║
-║ ├─ □ Exercise 4: JSON to CSV Conversion                      ║
-║ └─ □ Exercise 5: Postgres Data Modeling                      ║
-║                                                                  ║
-║ INTERMEDIATE LEVEL                                               ║
-║ ├─ □ Exercise 6: PySpark Ingestion                           ║
-║ ├─ □ Exercise 7: PySpark Functions                           ║
-║ ├─ □ Exercise 8: DuckDB Analytics                            ║
-║ └─ □ Exercise 9: Polars Lazy Computation                     ║
-║                                                                  ║
-║ ADVANCED LEVEL                                                   ║
-║ └─ □ Exercise 10: Data Quality Checks                        ║
-║                                                                  ║
-║ Progress: [□□□□□□□□□□] 0% ✨ (0 / 10 completed)              ║
-║                                                                  ║
-╚══════════════════════════════════════════════════════════════════╝
-
-💡 Tip: Edit the progress tracker above as you complete exercises!
-
-## Project Structure
-
-```
-Data-Engineering-UpWeGo/
-├── README.md                    # This file
-├── .gitignore                   # Git ignore rules
-├── Exercises/
-│   ├── Exercise-1/              # Downloading files
-│   ├── Exercise-2/              # Web scraping + Pandas
-│   ├── Exercise-3/              # AWS Boto3 + S3
-│   ├── Exercise-4/              # JSON to CSV conversion
-│   ├── Exercise-5/              # Postgres data modeling
-│   ├── Exercise-6/              # PySpark ingestion
-│   ├── Exercise-7/              # PySpark functions
-│   ├── Exercise-8/              # DuckDB analytics
-│   ├── Exercise-9/              # Polars lazy computation
-│   └── Exercise-10/             # Data quality checks
-```
-
-## Resources
-
-### Python
-- [Python Official Docs](https://docs.python.org/3/)
-- [Real Python Tutorials](https://realpython.com/)
-
-### Data Processing
-- [Pandas Documentation](https://pandas.pydata.org/docs/)
-- [PySpark Documentation](https://spark.apache.org/docs/latest/api/python/)
-- [Polars Documentation](https://pola-rs.github.io/polars/py-polars/)
-- [DuckDB Documentation](https://duckdb.org/docs/)
-
-### Database
-- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
-- [SQL Tutorial](https://www.w3schools.com/sql/)
-
-### Cloud & DevOps
-- [AWS Documentation](https://docs.aws.amazon.com/)
-- [Boto3 Documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
-- [Docker Documentation](https://docs.docker.com/)
-
-### Data Quality
-- [Great Expectations Documentation](https://docs.greatexpectations.io/)
+> **Note:** Docker is recommended for consistency across different systems.
 
 ---
 
-## 🔧 Tech Stack by Exercise
+## 📊 Progress Tracking
 
-```
-EX1 → requests       EX6 → pyspark         EX10 → great-expectations
-EX2 → beautifulsoup  EX7 → pyspark              (+ pandas)
-EX3 → boto3          EX8 → duckdb
-EX4 → pathlib        EX9 → polars
-EX5 → psycopg2       (+ pandas)
-     (+ sqlalchemy)
+Create a file called `PROGRESS.md` in your fork and track completion:
 
-     All exercises use Docker for reproducibility! 🐳
-```
+```markdown
+# My Progress 📈
 
-## Getting Help
+- [ ] Exercise 1 - Downloading Files
+- [ ] Exercise 2 - Web Scraping + Pandas
+- [ ] Exercise 3 - AWS S3 + Boto3
+- [ ] Exercise 4 - JSON to CSV
+- [ ] Exercise 5 - Postgres Modeling
+- [ ] Exercise 6 - PySpark Ingestion
+- [ ] Exercise 7 - PySpark Functions
+- [ ] Exercise 8 - DuckDB Analytics
+- [ ] Exercise 9 - Polars Lazy Computation
+- [ ] Exercise 10 - Data Quality
 
-- Check the README.md in each exercise folder for detailed guidance
-- Look at the hints section in each exercise
-- Review the starter code comments for additional context
-- Search for error messages in the documentation links above
-
----
-
-## 🎓 Recommended Learning Path
-
-```
-Choose Your Adventure:
-
-┌─────────────────────────────────────────────────────────────┐
-│             START HERE                                      │
-│                  ↓                                          │
-│          ┌──────────────────┐                              │
-│          │   Exercise 1     │  (Downloading Files)         │
-│          └────────┬─────────┘                              │
-│                   ↓                                         │
-│          ┌──────────────────┐                              │
-│          │   Exercise 2     │  (Web Scraping)             │
-│          └────────┬─────────┘                              │
-│                   ↓                                         │
-│          ┌──────────────────┐                              │
-│          │   Exercise 3     │  (Cloud Storage)            │
-│          └────────┬─────────┘                              │
-│                   ↓                                         │
-│          ┌──────────────────┐                              │
-│          │   Exercise 4     │  (Format Conversion)        │
-│          └────────┬─────────┘                              │
-│                   ↓                                         │
-│          ┌──────────────────┐                              │
-│          │   Exercise 5     │  (Database Design)          │
-│          └────────┬─────────┘                              │
-│                   ↓                                         │
-│     ┌─────────────┴──────────────┐                        │
-│     ↓                            ↓                        │
-│  ┌──────────┐            ┌──────────────┐                │
-│  │Exercise 6│            │ Exercise 8   │               │
-│  │(PySpark) │            │ (DuckDB)     │               │
-│  └────┬─────┘            └──────┬───────┘               │
-│       ↓                          ↓                       │
-│  ┌──────────┐            ┌──────────────┐               │
-│  │Exercise 7│            │ Exercise 9   │               │
-│  │(Functions)            │ (Polars)     │               │
-│  └────┬─────┘            └──────┬───────┘               │
-│       ↓                          ↓                       │
-│     ┌─────────────────────────────┐                     │
-│     │    Exercise 10              │                     │
-│     │ (Data Quality)              │                     │
-│     │ 🎓 YOU ARE NOW A DATA ENGINEER! 🎓               │
-│     └─────────────────────────────┘                     │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-
-⚡ Each exercise builds on previous knowledge!
-   Start with Exercise 1 and progress sequentially.
+**Total Progress:** 0/10 ✨
 ```
 
 ---
 
-## 📊 Project Statistics
+## 📚 Learning Resources
 
-```
-┌─────────────────────────────────────────┐
-│ 📈 BY THE NUMBERS                      │
-├─────────────────────────────────────────┤
-│                                         │
-│  ✓ 10    Total Exercises                │
-│  ✓ 50+   Coding Tasks                   │
-│  ✓ 7     Data Engineering Tools         │
-│  ✓ 5     Python Libraries               │
-│  ✓ 100%  Dockerized & Portable          │
-│  ✓ ∞     Learning Potential             │
-│                                         │
-│  ⏱️  Time to Complete: 40-60 hours     │
-│  💪 Difficulty: Beginner → Advanced    │
-│  🎓 DIY Certification: Share your work! │
-│                                         │
-└─────────────────────────────────────────┘
-```
+<details>
+<summary><b>Python & Data Processing</b></summary>
 
-## Contributing
+- [Python Official Documentation](https://docs.python.org/3/) - Core language reference
+- [Real Python](https://realpython.com/) - In-depth tutorials
+- [Pandas Documentation](https://pandas.pydata.org/docs/) - Data manipulation
+- [Polars Documentation](https://pola-rs.github.io/polars/) - Modern data frames
 
-Feel free to fork this repository and submit pull requests with improvements, additional exercises, or corrections. See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+</details>
 
-## License
+<details>
+<summary><b>Distributed Processing</b></summary>
 
-This project is open source and available under the MIT License.
+- [Apache Spark Documentation](https://spark.apache.org/docs/latest/) - Distributed computing
+- [PySpark API](https://spark.apache.org/docs/latest/api/python/) - Spark Python API
+- [DuckDB Documentation](https://duckdb.org/docs/) - In-memory OLAP
+
+</details>
+
+<details>
+<summary><b>Databases & SQL</b></summary>
+
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/) - relational database
+- [SQL Tutorial](https://www.w3schools.com/sql/) - Interactive SQL learning
+- [Database Design](https://en.wikipedia.org/wiki/Database_design) - Design principles
+
+</details>
+
+<details>
+<summary><b>Cloud & DevOps</b></summary>
+
+- [AWS Documentation](https://docs.aws.amazon.com/) - AWS services reference
+- [Boto3 Documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - AWS SDK for Python
+- [Docker Documentation](https://docs.docker.com/) - Container fundamentals
+- [Docker Compose](https://docs.docker.com/compose/) - Multi-container applications
+
+</details>
+
+<details>
+<summary><b>Data Quality & Testing</b></summary>
+
+- [Great Expectations](https://docs.greatexpectations.io/) - Data validation framework
+- [pytest Documentation](https://docs.pytest.org/) - Python testing
+- [Data Quality Fundamentals](https://www.stitchdata.com/resources/data-quality/) - Best practices
+
+</details>
 
 ---
 
-```
-╔═══════════════════════════════════════════════════════════════════════════════╗
-║                                                                               ║
-║                    🚀 YOU ARE NOW A DATA ENGINEER 🚀                         ║
-║                                                                               ║
-║                 σ(σ⌐█_█) Collection...                                       ║
-║                   \\(°-°)/ Processing...                                      ║
-║                  (★^●^★)  Analyzing...                                       ║
-║                   ~(o_o)~ Validating...                                      ║
-║                  (◕ ◞౪◟ ◕)  Delivering Results!                              ║
-║                                                                               ║
-║   Remember: Every byte counts, every query optimizes, every test validates! ║
-║                                                                               ║
-║  "Data is the new oil, but only if you know how to refine it." — You       ║
-║                                                                               ║
-║  Keep learning. Keep building. Keep engineering.                            ║
-║                                                                               ║
-╚═══════════════════════════════════════════════════════════════════════════════╝
+## 🔧 Technology Stack by Exercise
 
-                        Made with 💻 and ☕ for data nerds
-```
+| Exercise Range | Category | Key Technologies |
+|---|---|---|
+| Ex 1-5 | Foundation | `requests`, `boto3`, `psycopg2`, `beautifulsoup4` |
+| Ex 6-7 | Spark | `pyspark` (Spark SQL, DataFrame API) |
+| Ex 8 | Analytics | `duckdb` (OLAP, in-memory processing) |
+| Ex 9 | Modern | `polars` (Rust-based, lazy evaluation) |
+| Ex 10 | Quality | `great-expectations`, `pytest` |
+
+**All exercises are containerized with 🐳 Docker for reproducibility!**
+
+**Estimated Time to Complete:** 40-60 hours  
+**Difficulty Progression:** Beginner → Intermediate → Advanced  
+**Certification:** Share your work and get recognized! 🎓
+
+---
+
+## ❓ Getting Help
+
+### Common Issues & Solutions
+
+| Problem | Solution |
+|---------|----------|
+| `docker: command not found` | Install Docker Desktop or Docker Engine for your OS |
+| `permission denied` | Add user to docker group: `sudo usermod -aG docker $USER` |
+| Container build fails | Check `requirements.txt` file and ensure Docker daemon is running |
+| Import errors in Python | Run `pip install -r requirements.txt` inside the container |
+| Can't connect to database | Ensure `docker-compose up -d` completed; check logs with `docker-compose logs` |
+
+### Where to Find Help
+
+1. **Exercise README.md** - Each exercise has detailed problem descriptions and hints
+2. **Starter code comments** - Look for TODO and NOTE comments in `solution.py`
+3. **Official documentation** - Use the resource links in the Learning Resources section
+4. **Stack Overflow** - Search with your error message + tool name
+5. **GitHub Issues** - Check if others have reported the same problem
+
+---
+
+## 🎁 Extra Features
+
+### Bonus Content
+
+- 📄 **QUICKSTART.md** - Skip to the action (5-minute setup)
+- 📖 **CONTRIBUTING.md** - How to contribute new exercises
+- 📊 **Exercise solutions** - Reference implementations (after completion)
+
+### Next Steps After Completion
+
+Level up your skills with these advanced topics:
+- **Workflow Orchestration:** Apache Airflow, Prefect, Dagster
+- **Transformation:** dbt (data build tool)
+- **Real-time Processing:** Apache Kafka, Spark Streaming
+- **Orchestration:** Kubernetes (K8s) for production deployments
+- **Cloud Platforms:** Snowflake, Google BigQuery, AWS Redshift
+- **Advanced Analytics:** Machine learning pipelines, feature stores
+
+---
+
+## 🏆 Share Your Success
+
+After completing all 10 exercises:
+
+1. ✅ Fork this repository
+2. ✅ Complete all exercises with passing tests
+3. ✅ Push your solutions to GitHub
+4. ✅ Add a `PROGRESS.md` file documenting what you learned
+5. ✅ (Optional) Submit your repo for a free copy of "Introduction to Data Engineering"
+
+---
+
+## 📊 By the Numbers
+
+- **✨ 10** comprehensive exercises
+- **🎯 50+** individual coding tasks
+- **🛠️ 7** different data engineering tools and libraries
+- **👥 100%** containerized and portable
+- **⏱️ 40-60** hours of practical learning
+- **📈 Difficulty:** Beginner → Advanced
+- **🎓 Certification:** Share & get recognized!
+
+---
+
+## 🤝 Contributing
+
+We ❤️ contributions! Help us improve this project:
+
+- **Found a bug?** Open an issue on GitHub
+- **Have a better solution?** Submit a pull request
+- **Want to add exercises?** See [CONTRIBUTING.md](./CONTRIBUTING.md)
+- **Grammar/clarity issues?** We accept all improvements!
+
+**[See CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.**
+
+---
+
+## 📄 License
+
+This project is open source and licensed under the **MIT License**. See [LICENSE](./LICENSE) for details.
+
+---
+
+<div align="center">
+
+## 🚀 Ready to Become a Data Engineer?
+
+### **[→ Start with Exercise 1 ←](./Exercises/Exercise-1/README.md)**
+
+Every expert was once a beginner.  
+Every master was once a student.  
+Every data engineer started with these fundamentals.
+
+---
+
+**Made with 💻 and ☕ by data engineers, for data engineers**
+
+⭐ If this project helped you, please star it! 🙏
+
+</div>
